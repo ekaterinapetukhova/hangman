@@ -1,0 +1,8 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="30" cy="30" r="30" fill="#F4EBDB"/>
+<line x1="14.9571" y1="20.2929" x2="23.4424" y2="28.7782" stroke="#537072" stroke-width="2"/>
+<line x1="14.2929" y1="28.7782" x2="22.7782" y2="20.2929" stroke="#537072" stroke-width="2"/>
+<line x1="36.7071" y1="20.2929" x2="45.1924" y2="28.7782" stroke="#537072" stroke-width="2"/>
+<line x1="36.0429" y1="28.7782" x2="44.5282" y2="20.2929" stroke="#537072" stroke-width="2"/>
+<path d="M19.5 48.375L21.8928 47.3024C27.2713 44.8913 33.4395 44.9755 38.7502 47.5325L40.5 48.375" stroke="#537072" stroke-width="2"/>
+</svg>

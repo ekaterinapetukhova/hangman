@@ -1,0 +1,292 @@
+// === VARIABLES === //
+
+@use "vars";
+
+// === FONTS === //
+
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One:regular");
+
+// === GENERAL === //
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: vars.$background;
+  color: vars.$color;
+  font-family: "Julius Sans One", sans-serif;
+  text-transform: uppercase;
+  height: 100vh;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+// === GAME === //
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 3.12rem;
+  height: 100%;
+
+  &__info {
+  }
+
+  &__guess {
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+
+  &__text {
+    text-align: center;
+    line-height: 120%;
+
+    &_question {
+      font-size: 1.25rem;
+      max-width: 15rem;
+    }
+
+    &_score {
+      font-size: 1.5rem;
+    }
+  }
+
+  &__image-block {
+    position: relative;
+    margin-top: -3.12rem;
+    height: 22rem;
+  }
+
+  &__img {
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &_gallows {
+      opacity: 1;
+    }
+
+    &_head {
+      position: absolute;
+      left: 0;
+      top: 5.62rem;
+    }
+
+    &_body {
+      position: absolute;
+      left: 34%;
+      top: 9.2rem;
+      z-index: -2;
+    }
+
+    &_left-arm {
+      position: absolute;
+      top: 9.35rem;
+      left: 50%;
+      z-index: -2;
+    }
+
+    &_right-arm {
+      position: absolute;
+      top: 9.35rem;
+      right: 50%;
+      z-index: -2;
+    }
+
+    &_left-leg {
+      position: absolute;
+      top: 14.5rem;
+      left: 43%;
+    }
+
+    &_right-leg {
+      position: absolute;
+      top: 14.5rem;
+      right: 42%;
+    }
+  }
+
+  &__span {
+    text-align: center;
+    display: block;
+    margin-top: 0.3rem;
+  }
+}
+
+.guess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3rem;
+  padding-bottom: 2.5rem;
+
+  &__answer {
+  }
+
+  &__keyboard {
+  }
+}
+
+.answer {
+  &__list {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 0.31rem;
+    width: 2.5rem;
+  }
+
+  &__char {
+    background: transparent;
+    color: vars.$color;
+    font-family: inherit;
+    font-size: 2.25rem;
+    text-align: center;
+    width: 100%;
+    cursor: default;
+    caret-color: transparent;
+  }
+
+  &__span {
+    background: vars.$color;
+    display: block;
+    width: 2.5rem;
+    height: 0.1875rem;
+    transition: opacity .5s;
+  }
+}
+
+.keyboard {
+  max-width: 42.5rem;
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    background: rgba(244, 235, 219, 0.25);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.125rem;
+    width: 3.125rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:nth-child(11) {
+      margin-left: 2.15rem;
+    }
+
+    &:nth-child(19) {
+      margin-right: 2.15rem;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+      font-size: 2.25rem;
+    }
+
+    &_disabled {
+      background: rgba(244, 235, 219, 0.1);
+      color: rgba(244, 235, 219, 0.2);
+      pointer-events: none;
+    }
+  }
+}
+
+// === POPUP === //
+
+.popup {
+  background: rgba(31, 35, 36, 0.78);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+
+  &__body {
+    background: vars.$background;
+    width: 22.5rem;
+    height: 14.9375rem;
+    margin: 0 1rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2.5rem;
+    height: 100%;
+  }
+
+  &__title {
+    font-weight: 400;
+    font-size: 2.25rem;
+    position: relative;
+  }
+
+  &__answer {
+    font-size: 1.5rem;
+    display: flex;
+    gap: 0.625rem;
+  }
+
+  &__text {
+    &_answer {
+    }
+  }
+
+  &__button {
+    background: rgba(244, 235, 219, 0.25);
+    color: vars.$color;
+    text-align: center;
+    font-family: "Julius Sans One", sans-serif;
+    font-size: 1.25rem;
+    padding: 0.625rem 1.0625rem;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+//  === MEDIA === //
+
+@import "media";

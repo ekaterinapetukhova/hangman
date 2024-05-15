@@ -1,0 +1,213 @@
+@media all and (max-width: 900px) {
+  .info {
+    padding-top: 2.5rem;
+
+    &__text {
+      font-size: 1rem;
+
+      &_score {
+        font-size: 1.2rem;
+      }
+    }
+
+    &__image-block {
+      margin-top: -4.7rem;
+      transform: scale(0.9);
+    }
+
+    &__img {
+      &_left-leg,
+      &_right-leg {
+        top: 14.5rem;
+      }
+    }
+  }
+
+  .guess {
+    row-gap: 2rem;
+  }
+
+  .answer {
+    &__span {
+    }
+  }
+
+  .keyboard {
+  }
+}
+
+@media all and (max-width: 780px) {
+  .game {
+    padding: 0 2rem;
+  }
+
+  .keyboard {
+    max-width: 40rem;
+
+    &__item {
+      &:nth-child(11),
+      &:nth-child(19) {
+        margin: unset;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 690px) {
+  .game {
+    padding: 0 2rem;
+  }
+
+  .info {
+    &__text {
+      &_question {
+        max-width: 12rem;
+      }
+    }
+  }
+
+  .guess {
+    gap: 1.5rem;
+  }
+
+  .keyboard {
+    width: 38rem;
+
+    &__list {
+      gap: 1rem;
+    }
+  }
+}
+
+@media all and (max-width: 610px) {
+  .info {
+    padding-top: 1.5rem;
+
+    &__text {
+      &_question {
+        max-width: 10rem;
+      }
+      &_score {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .guess {
+    padding-bottom: 2rem;
+  }
+
+  .answer {
+
+    &__list {
+      gap: 0.8rem;
+    }
+  }
+
+  .keyboard {
+    max-width: 30rem;
+
+    &__list {
+      gap: 0.8rem;
+    }
+
+    &__item {
+      font-size: 1.8rem;
+      width: 3rem;
+      height: 3rem;
+
+      &:nth-child(11),
+      &:nth-child(19) {
+        margin: unset;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 550px) {
+  .game {
+    padding: 0 1.5rem;
+  }
+
+  .info {
+    &__text {
+      &_question {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .answer {
+  }
+
+  .keyboard {
+    max-width: 26rem;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .game {
+    padding: 0 1rem;
+  }
+  .info {
+    justify-content: space-around;
+    position: relative;
+    padding-top: 1rem;
+
+    &__text {
+      &_question {
+        position: absolute;
+        top: 35%;
+        right: 5%;
+        max-width: 50%;
+      }
+    }
+
+    &__image-block {
+      transform: scale(0.7);
+    }
+  }
+
+  .guess {
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+  }
+
+  .answer {
+    &__list {
+      gap: 0.5rem;
+    }
+    &__char {
+      font-size: 1.8rem;
+    }
+  }
+
+  .keyboard {
+    max-width: 22rem;
+
+    &__list {
+      gap: 0.5rem;
+    }
+  }
+}
+
+@media (pointer: coarse) {
+  .keyboard {
+    &__item {
+      &:hover {
+        transform: scale(1);
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+@media (pointer: coarse) and (max-width: 610px) {
+  .keyboard {
+    &__item {
+      &:hover {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

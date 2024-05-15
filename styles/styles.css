@@ -1,0 +1,364 @@
+@import url("https://fonts.googleapis.com/css?family=Julius+Sans+One:regular");
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #537072;
+  color: #f4ebdb;
+  font-family: "Julius Sans One", sans-serif;
+  text-transform: uppercase;
+  height: 100vh;
+}
+
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0 3.12rem;
+  height: 100%;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+.info__text {
+  text-align: center;
+  line-height: 120%;
+}
+.info__text_question {
+  font-size: 1.25rem;
+  max-width: 15rem;
+}
+.info__text_score {
+  font-size: 1.5rem;
+}
+.info__image-block {
+  position: relative;
+  margin-top: -3.12rem;
+  height: 22rem;
+}
+.info__img {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.info__img_gallows {
+  opacity: 1;
+}
+.info__img_head {
+  position: absolute;
+  left: 0;
+  top: 5.62rem;
+}
+.info__img_body {
+  position: absolute;
+  left: 34%;
+  top: 9.2rem;
+  z-index: -2;
+}
+.info__img_left-arm {
+  position: absolute;
+  top: 9.35rem;
+  left: 50%;
+  z-index: -2;
+}
+.info__img_right-arm {
+  position: absolute;
+  top: 9.35rem;
+  right: 50%;
+  z-index: -2;
+}
+.info__img_left-leg {
+  position: absolute;
+  top: 14.5rem;
+  left: 43%;
+}
+.info__img_right-leg {
+  position: absolute;
+  top: 14.5rem;
+  right: 42%;
+}
+.info__span {
+  text-align: center;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+.guess {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 3rem;
+  padding-bottom: 2.5rem;
+}
+.answer__list {
+  display: flex;
+  gap: 1.25rem;
+}
+.answer__item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  row-gap: 0.31rem;
+  width: 2.5rem;
+}
+.answer__char {
+  background: transparent;
+  color: #f4ebdb;
+  font-family: inherit;
+  font-size: 2.25rem;
+  text-align: center;
+  width: 100%;
+  cursor: default;
+  caret-color: transparent;
+}
+.answer__span {
+  background: #f4ebdb;
+  display: block;
+  width: 2.5rem;
+  height: 0.1875rem;
+  transition: opacity 0.5s;
+}
+
+.keyboard {
+  max-width: 42.5rem;
+}
+.keyboard__list {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.keyboard__item {
+  background: rgba(244, 235, 219, 0.25);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.125rem;
+  width: 3.125rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.keyboard__item:nth-child(11) {
+  margin-left: 2.15rem;
+}
+.keyboard__item:nth-child(19) {
+  margin-right: 2.15rem;
+}
+.keyboard__item:hover {
+  transform: scale(1.2);
+  font-size: 2.25rem;
+}
+.keyboard__item_disabled {
+  background: rgba(244, 235, 219, 0.1);
+  color: rgba(244, 235, 219, 0.2);
+  pointer-events: none;
+}
+
+.popup {
+  background: rgba(31, 35, 36, 0.78);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+.popup__body {
+  background: #537072;
+  width: 22.5rem;
+  height: 14.9375rem;
+  margin: 0 1rem;
+}
+.popup__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 2.5rem;
+  height: 100%;
+}
+.popup__title {
+  font-weight: 400;
+  font-size: 2.25rem;
+  position: relative;
+}
+.popup__answer {
+  font-size: 1.5rem;
+  display: flex;
+  gap: 0.625rem;
+}
+.popup__button {
+  background: rgba(244, 235, 219, 0.25);
+  color: #f4ebdb;
+  text-align: center;
+  font-family: "Julius Sans One", sans-serif;
+  font-size: 1.25rem;
+  padding: 0.625rem 1.0625rem;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+.popup__button:hover {
+  transform: scale(1.2);
+}
+
+@media all and (max-width: 900px) {
+  .info {
+    padding-top: 2.5rem;
+  }
+  .info__text {
+    font-size: 1rem;
+  }
+  .info__text_score {
+    font-size: 1.2rem;
+  }
+  .info__image-block {
+    margin-top: -4.7rem;
+    transform: scale(0.9);
+  }
+  .info__img_left-leg, .info__img_right-leg {
+    top: 14.5rem;
+  }
+  .guess {
+    row-gap: 2rem;
+  }
+}
+@media all and (max-width: 780px) {
+  .game {
+    padding: 0 2rem;
+  }
+  .keyboard {
+    max-width: 40rem;
+  }
+  .keyboard__item:nth-child(11), .keyboard__item:nth-child(19) {
+    margin: unset;
+  }
+}
+@media all and (max-width: 690px) {
+  .game {
+    padding: 0 2rem;
+  }
+  .info__text_question {
+    max-width: 12rem;
+  }
+  .guess {
+    gap: 1.5rem;
+  }
+  .keyboard {
+    width: 38rem;
+  }
+  .keyboard__list {
+    gap: 1rem;
+  }
+}
+@media all and (max-width: 610px) {
+  .info {
+    padding-top: 1.5rem;
+  }
+  .info__text_question {
+    max-width: 10rem;
+  }
+  .info__text_score {
+    font-size: 1rem;
+  }
+  .guess {
+    padding-bottom: 2rem;
+  }
+  .answer__list {
+    gap: 0.8rem;
+  }
+  .keyboard {
+    max-width: 30rem;
+  }
+  .keyboard__list {
+    gap: 0.8rem;
+  }
+  .keyboard__item {
+    font-size: 1.8rem;
+    width: 3rem;
+    height: 3rem;
+  }
+  .keyboard__item:nth-child(11), .keyboard__item:nth-child(19) {
+    margin: unset;
+  }
+}
+@media all and (max-width: 550px) {
+  .game {
+    padding: 0 1.5rem;
+  }
+  .info__text_question {
+    font-size: 0.8rem;
+  }
+  .keyboard {
+    max-width: 26rem;
+  }
+}
+@media all and (max-width: 500px) {
+  .game {
+    padding: 0 1rem;
+  }
+  .info {
+    justify-content: space-around;
+    position: relative;
+    padding-top: 1rem;
+  }
+  .info__text_question {
+    position: absolute;
+    top: 35%;
+    right: 5%;
+    max-width: 50%;
+  }
+  .info__image-block {
+    transform: scale(0.7);
+  }
+  .guess {
+    gap: 1.5rem;
+    padding-bottom: 1rem;
+  }
+  .answer__list {
+    gap: 0.5rem;
+  }
+  .answer__char {
+    font-size: 1.8rem;
+  }
+  .keyboard {
+    max-width: 22rem;
+  }
+  .keyboard__list {
+    gap: 0.5rem;
+  }
+}
+@media (pointer: coarse) {
+  .keyboard__item:hover {
+    transform: scale(1);
+    font-size: 2rem;
+  }
+}
+@media (pointer: coarse) and (max-width: 610px) {
+  .keyboard__item:hover {
+    font-size: 1.8rem;
+  }
+}/*# sourceMappingURL=styles.css.map */
